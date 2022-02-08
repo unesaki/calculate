@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>これひと</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+</head>
+<body>
+    <script src="calculate.js"></script>
+<header>
+    <div id="logo"></div>
+    <nav>
+        <ul>
+            <li><a href="https://www.twitter.com/Rom_Rom16">Twitter</a></li>
+            <li><a href="https://www.instagram.com/une_1610">Instagram</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </nav>
+    
+    <div class="clear"></div>
+    
+</header>
+
+<div id="text">
+    <h1>あれ、どうやって計算するんだっけ、<br>ド忘れの経験が制作のきっかけです。</h1>
+        <p>消費税からBMI・カロリーなど数値を入力するだけで求められます。<br>コンテンツはこれからも追加予定です。</p>
+</div>
+
+<!--ここから電卓を作る（js・cssもここに記述する）-->
+<div id="main_text">
+    <!--ここからjs-->
+    <script type="text/javascript">
+        myTotal = 0;
+        myInput = "";
+        myCalc = "+";
+        myFig = 1;
+
+        function myValue(myData){
+            myFig = 0;
+            myInput += myData;
+            document.myForm.myLine.value = myInput;
+        }
+
+        function myCalculate(myData){
+            if(myFig==0){
+                myFig = 1;
+                myWork = myTotal + myCalc +myInput;
+                myTotal = eval(myWork);
+                myInput = "";
+                document.myForm.myLine.value = myTotal;
+            }
+            if(myData == "="){
+                myTotal = 0;
+                myCalc = "+";
+            }else{
+                myCalc = myData;
+            }
+        }
+
+        function myC(){
+            myTotal = 0;
+            myCalc = "+";
+            myInput = "";
+            document.myForm.myLine.value = myTotal;
+        }
+    </script>
+    <!--ここまでjs-->
+
+    <!--ここから電卓のHTML/css-->
+    <form name="myForm">
+        <table border="1" bgcolor="#BDB76B">
+            <tr>
+                <td align="center" colspan="4" bgcolor="#d2691e"><font color="#FFF">
+                    <strong>電 卓</font></strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="text" size="20" name="myLine" value="0"></td>
+                <td align="center"><input type="button" value="C" onclick="myC()"></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="button" value=" 7 " onclick="myValue(7)"></td>
+                <td align="center"><input type="button" value=" 8 " onclick="myValue(8)"></td>
+                <td align="center"><input type="button" value=" 9 " onclick="myValue(9)"></td>
+                <td align="center"><input type="button" value="÷" onclick="myCalculate('/')"></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="button" value=" 4 " onclick="myValue(4)"></td>
+                <td align="center"><input type="button" value=" 5 " onclick="myValue(5)"></td>
+                <td align="center"><input type="button" value=" 6 " onclick="myValue(6)"></td>
+                <td align="center"><input type="button" value="×" onclick="myCalculate('*')"></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="button" value=" 1 " onclick="myValue(1)"></td>
+                <td align="center"><input type="button" value=" 2 " onclick="myValue(2)"></td>
+                <td align="center"><input type="button" value=" 3 " onclick="myValue(3)"></td>
+                <td align="center"><input type="button" value="-" onclick="myCalculate('-')"></td>
+            </tr>
+            <tr>
+                <td align="center"><input type="button" value=" 0 " onclick="myValue(0)"></td>
+                <td align="center"><input type="button" value=" . " onclick="myValue('.')"></td>
+                <td align="center"><input type="button" value=" + " onclick="myCalculate('+')"></td>
+                <td align="center"><input type="button" value="=" onclick="myCalculate('=')"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<!--ここまで電卓-->
+
+<!--ここから計算コンテンツ-->
+<div id="contents_1">
+    <h2>消費税の計算</h2>
+    <form class="tax_form">
+        <dl>
+            <dt>商品額(円) :</dt>
+            <dd><input type="number" class="box" name="amountMoney"></dd>
+            <dt>消費税(%) :</dt>
+            <dd><input type="number" class="box" name="tax"></dd>
+
+            <p><input type="button" class="calc-btn1"
+                onclick="calc1(amountMoney.value, tax.value);" value="計算"></p>
+
+            <dt>税込み額(円) :</dt>
+            <dd><input id="total" class="box" type="text" readonly=""></dd>
+        </dl>
+    </form>
+</div>
+
+
+<div id="contents_2">
+    <h2>割引の計算</h2>
+    <form class="discounted_form">
+        <dl>
+            <dt>商品額(円) :</dt>
+            <dd><input type="number" class="box" name="amount_money1"></dd>
+            <dt>割引(%) :</dt>
+            <dd><input type="nunber" class="box" name="discounted"></dd>
+
+            <p><input type="button" class="calc-btn2"
+                onclick="calc2(amount_money1.value, discounted.value);" value="計算"></p>
+
+            <dt>割引後の金額(円) :</dt>
+            <dd><input id="after" class="box" type="text" readonly=""></dd>
+        </dl>
+    </form>
+</div>
+<div class="clear"></div>
+
+<div id="contents_3">
+
+</div>
+<div id="contents_4">
+    <h2>BMIの計算</h2>
+    <form class="bmi_form">
+        <dl>
+            <dt>身長(cm) :</dt>
+            <dd><input type="number" class="box" name="body_height"></dd>
+            <dt>体重(kg) :</dt>
+            <dd><input type="nunber" class="box" name="body_weight"></dd>
+
+            <p><input type="button" class="calc-btn4"
+                onclick="calc4(body_height.value, body_weight.value);" value="計算"></p>
+
+            <dt>適正体重(kg) :</dt>
+            <dd><input id="appro" class="box" type="text" readonly=""></dd>
+            <dt>BMI( . 以下四捨五入) :</dt>
+            <dd><input id="yourBmi" class="box" type="text" readonly=""></dd>
+        </dl>
+    </form>
+    <div id="bmi_image">
+    <img src="https://github.com/unesaki/calculate/blob/main/bmi.png?raw=true" alt="BMIの判定表">
+    </div>
+    <div class="clear"></div>
+</div>
+
+
+<div id="contents_5">
+    <h2>必要なカロリーの計算</h2>
+    <form class="diet_form">
+        <dl>
+            <dt>体重(kg) :</dt>
+            <dd><input type="number" class="box" name="weight"></dd>
+            <dt>体脂肪率(%) :</dt>
+            <dd><input type="number" class="box" name="bfp"></dd>
+
+            <p><input type="button" class="calk-btn5"
+                onclick="calc5(weight.value, bfp.value);" value="計算"></p>
+
+
+            <dt>徐脂肪体重(kg) :</dt>
+            <dd><input id="lean" class="box" type="text" readonly=""></dd>
+            <dt>接種可能カロリー(kcal) :</dt>
+            <dd><input id="cal" class="box" type="text" readonly=""></dd>
+            <dt>タンパク質(g) :</dt>
+            <dd><input id="protein" class="box" type="text" readonly=""></dd>
+            <dt>脂質(g) :</dt>
+            <dd><input id="fat" class="box" type="text" readonly=""></dd>
+            <dt>炭水化物(g) :</dt>
+            <dd><input id="carbo" class="box" type="text" readonly=""></dd>
+        </dl>
+    </form>
+</div>
+<div class="clear"></div>
+
+<footer>
+    
+    <ul>
+        <li>その他の作品はこちら</li>
+        <li><a href="https://unesaki.github.io/ToDo/">ToDoリスト</a></li>
+        <li><a href="#">タイピング練習</a></li>
+    </ul>
+
+</footer>
+    
+</body>
+</html>

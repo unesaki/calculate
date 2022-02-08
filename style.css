@@ -1,0 +1,152 @@
+/*float解除*/
+.clear {
+    clear: both;
+}
+
+
+/*全体の横幅を960pxに*/
+body {
+    width: 960px;
+}
+
+header {
+    background: url(https://github.com/unesaki/calculate/blob/main/header.png?raw=true);
+    height: 240px;
+}
+
+header nav {
+    float: right;
+    margin-top: 20px;
+    margin-right: 40px;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    float: left;
+    margin-left: 29px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #DACCE4;
+}
+
+/*h1の設定*/
+h1 {
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 35px;
+    font-family: "Noto Sans JP"; 
+}
+
+
+/*pの設定*/
+div#text p {
+    text-align: center;
+    line-height: 1.5em;
+    font-size: 20px;
+    font-family: "Noto Sans JP";
+}
+
+
+
+
+/*コンテンツ1を左にfloatして幅を50%に*/
+div#contents_1 {
+    float: left;
+    width: 50%;
+}
+
+
+/*コンテンツ1のcssを書く*/
+.tax_form {
+    background: #eaf4ff;
+    padding: 10px 30px;
+}
+
+/*ここからdiv#contents5のcssを書く*/
+.diet_form {
+    background: #eaf4ff;
+    padding: 10px 30px;
+}
+
+/*コンテンツ2のcssを書く*/
+.discounted_form {
+    background: #eaf4ff;
+    padding: 10px 30px;
+}
+
+/*コンテンツ4のcssを書く*/
+.bmi_form {
+    background: #eaf4ff;
+    padding: 10px 30px;
+    width: 50%;
+    float: left;
+}
+
+/*コンテンツ5のcssを書く
+classなど同じものはここに記述*/
+form dl dt {
+    width: 200px;
+    height: 40px;
+    padding: 10px 0;
+    line-height: 40px;
+    float: left;
+}
+
+form dl dd {
+    padding: 10px 0;
+    margin: 0;
+}
+
+.box {
+    box-sizing: border-box;
+    width: 150px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.calc-btn5 {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #333;
+}
+
+.calc-btn:hover {
+    cursor: pointer;
+}
+
+
+/*コンテンツ4の写真*/
+div#bmi_image {
+    background: #eaf4ff;
+    padding-top: 80px;
+    height: 271px;
+}
+
+/*フッター*/
+footer {
+    height: 50px;
+    background: lemonchiffon;
+}
+
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    
+    float: left;
+    margin-left: 20px;
+    margin-top: 14px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #DACCE4;
+}
