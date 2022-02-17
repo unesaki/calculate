@@ -6,11 +6,13 @@
 
 /*全体の横幅を960pxに*/
 body {
-    width: 960px;
+    width: 100%;
 }
 
 header {
     background: url(https://github.com/unesaki/calculate/blob/main/header.png?raw=true);
+    background-repeat: no-repeat;
+    background-position: center;
     height: 240px;
 }
 
