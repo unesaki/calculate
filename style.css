@@ -152,3 +152,73 @@ footer ul li a {
     text-decoration: none;
     color: #DACCE4;
 }
+
+@media  screen and (max-width: 480px) {
+        body {
+            width: 100%;
+        }
+
+        header {
+            width: 100%;
+            background-size: 400px;
+            height: 130px;
+        }
+
+        header nav {
+            margin-top: 0px;
+            margin-right: 10px;
+        }
+
+        header nav ul li {
+            margin-left: 13px;
+        }
+
+        header nav ul li a {
+            font-size: 12px;
+        }
+
+        h1 {
+            font-size: 23px;
+        }
+
+        div#text p {
+            font-size: 12px;
+        }
+
+        div#contents_1 {
+            float: none;
+            width: 100%;
+        }
+
+        div#contents_4 .bmi_form {
+            float: none;
+            width: 340px;
+        }
+
+        div#bmi_image {
+            text-align: center;
+            padding-top: 0px;
+        }
+
+        .box {
+            box-sizing: border-box;
+            width: 120px !important;
+            height: 40px !important;
+        }
+
+        footer {
+            height: 40px;
+            
+        }
+
+        footer ul li {
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        footer ul li a {
+            font-size: 12px;
+        }
+
+        
+}
